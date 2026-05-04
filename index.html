@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salesforce Field Guides</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 60px 24px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    .guides {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .guide-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 28px 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .guide-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-2px);
+    }
+    .guide-card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .guide-card .description {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .guide-card .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .guide-card .meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .guide-card .chapters {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    .intro {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .intro p {
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    .pick-table {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-top: 48px;
+    }
+    .pick-table h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 16px;
+    }
+    .pick-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .pick-table th, .pick-table td {
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid #334155;
+    }
+    .pick-table th {
+      color: #64748b;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pick-table td {
+      font-size: 0.9rem;
+    }
+    .pick-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Salesforce Field Guides</h1>
+    <p class="subtitle">Practical handbooks for Salesforce practitioners who have shipped code at scale and wrote down what they learned. Dense, honest, cited. No padding.</p>
+
+    <div class="intro">
+      <p>Each guide covers a distinct Salesforce surface area. They share the same conventions: plain prose, concrete over abstract, every structural claim backed by a canonical doc link. Pick the guide that matches where you are right now.</p>
+    </div>
+
+    <div class="guides">
+      <a href="https://ialameh.github.io/agentforce-field-guide/" class="guide-card" target="_blank">
+        <h2>Agentforce Field Guide</h2>
+        <p class="description">Building custom agent actions on Salesforce Agentforce. Custom Apex, flows, and prompt templates wired into agents via topics, custom actions, and subagents. Conversation design, prompt engineering, and cost optimization for LLM-backed agents.</p>
+        <div class="meta">
+          <span>20 chapters</span>
+          <span>Custom actions, topics, GenAiFunction</span>
+          <span>Prompt engineering, cost optimization</span>
+          <span>5-layer architecture</span>
+        </div>
+        <div class="chapters">Quickstart · Mental model · Naming/namespaces · Development loop · Troubleshooting · Security · Testing · Decision matrix · Conversation design · Agent/subagent design · Prompt engineering · Cost optimization · CI/CD</div>
+      </a>
+
+      <a href="https://ialameh.github.io/omnistudio-bre-field-guide/" class="guide-card" target="_blank">
+        <h2>OmniStudio BRE Field Guide</h2>
+        <p class="description">Decision tables, decision matrices, expression sets, and Integration Procedures on the legacy OmniStudio/Vlocity Business Rule Engine. Covers vlocity_cmt__DRMatrix__c, vlocity_cmt__IntegrationProcedure__c, and the vlocity_cmt.IntegrationProcedureService runtime. For orgs still on the legacy path.</p>
+        <div class="meta">
+          <span>18 chapters</span>
+          <span>vlocity_cmt runtime</span>
+          <span>Decision tables, matrices, IPs</span>
+          <span>Migration guides</span>
+        </div>
+        <div class="chapters">Quickstart · Mental model · Key concepts · Project structure · Starting checklist · Troubleshooting · Release/activation · Decision matrices · Decision tables · Expression sets · Performance · FAQ · Migration guides · CI/CD</div>
+      </a>
+
+      <a href="https://ialameh.github.io/salesforce-devops-field-guide/" class="guide-card" target="_blank">
+        <h2>Salesforce DevOps Field Guide</h2>
+        <p class="description">Everything between a developer's editor and a user's production org. Source tracking, scratch orgs, 2GP unlocked and managed packages, branching strategies, CI/CD architecture, sandbox strategy, test levels, destructive changes, rollback, and hotfixes.</p>
+        <div class="meta">
+          <span>28 chapters</span>
+          <span>2GP packaging</span>
+          <span>Scratch orgs</span>
+          <span>4 stores of truth</span>
+        </div>
+        <div class="chapters">Quickstart · Mental model · Project structure · Source format · Branching · .forceignore · Scratch orgs · Org shapes · Source tracking · Packaging · 2GP unlocked/managed · Dependencies · Versioning · Deploy semantics · Test levels · Destructive changes · CI/CD architecture · Sandbox strategy · Rollback · AI-assisted development</div>
+      </a>
+
+      <a href="https://ialameh.github.io/salesforce-native-bre-field-guide/" class="guide-card" target="_blank">
+        <h2>Salesforce Native BRE Field Guide</h2>
+        <p class="description">The Salesforce Industries Business Rules Engine using ExpressionSetDefinition and DecisionMatrixDefinition. Expression Sets, Decision Matrices, Decision Tables, the BRE REST API, and Apex-to-BRE integration. Explicit distinction from legacy OmniStudio BRE throughout.</p>
+        <div class="meta">
+          <span>18 chapters</span>
+          <span>ExpressionSetDefinition API</span>
+          <span>Manual activation</span>
+          <span>Apex BRE client pattern</span>
+        </div>
+        <div class="chapters">Quickstart · Mental model · Key concepts · Project structure · Starting checklist · Troubleshooting · Release/activation · Anti-patterns · Security · Testing · Observability · Decision matrices · Decision tables · Expression sets · Performance · FAQ · Migration from legacy BRE · CI/CD</div>
+      </a>
+    </div>
+
+    <div class="pick-table">
+      <h3>How to pick a guide</h3>
+      <table>
+        <tr><th>Your situation</th><th>Start here</th></tr>
+        <tr><td>Building custom agent actions on Agentforce</td><td>Agentforce Field Guide</td></tr>
+        <tr><td>Working with OmniStudio decision tables/matrices/IPs</td><td>OmniStudio BRE Field Guide</td></tr>
+        <tr><td>Designing a new Salesforce project or CI/CD pipeline</td><td>Salesforce DevOps Field Guide</td></tr>
+        <tr><td>Calling BRE from Apex in a native BRE org</td><td>Salesforce Native BRE Field Guide</td></tr>
+        <tr><td>Migrating off OmniStudio/Vlocity to native BRE</td><td>Salesforce Native BRE + OmniStudio BRE guides</td></tr>
+        <tr><td>Setting up 2GP unlocked packages for a new project</td><td>Salesforce DevOps Field Guide, chapters 13-17</td></tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
